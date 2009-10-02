@@ -5,15 +5,17 @@
 
 package modele;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 /**
  *
  * @author Dorian Langlais
  */
-public class main {
-
+public class Client {
+	
+	/**
+	 * 
+	 * @param argc
+	 * @throws NotInitializedException
+	 */
 	public static void main(final String[] argc) throws NotInitializedException {
 		System.out.println("test");
 		Grille g = new Grille();

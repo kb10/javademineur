@@ -15,9 +15,18 @@ import junit.framework.TestCase;
  * @author Dorian Langlais
  */
 public class GrilleTest extends TestCase {
-
+	
+	/**
+	 * Une grille Facile...
+	 */
 	private Grille grilleFacile;
+	/**
+	 * Une grille Moyenne...
+	 */
 	private Grille grilleMoyen;
+	/**
+	 * Une grille Expert...
+	 */
 	private Grille grilleExpert;
 	
 //	public void setUp() {
@@ -37,7 +46,10 @@ public class GrilleTest extends TestCase {
 //			Logger.getLogger(GrilleTest.class.getName()).log(Level.SEVERE, null, ex);
 //		}
 //	}
-
+	
+	/**
+	 * testGrille().
+	 */
 	public void testGrille() {
 		try {
 			grilleFacile = new Grille(Niveau.Facile);
@@ -84,7 +96,10 @@ public class GrilleTest extends TestCase {
 		assertEquals(grilleExpert.getHeight(), 16);
 		assertEquals(grilleExpert.getWidth(), 30);
 	}
-
+	
+	/**
+	 * testToString().
+	 */
 	public void testToString() {
 		
 		try {
@@ -97,8 +112,8 @@ public class GrilleTest extends TestCase {
 		Field fwidth;
 		Field fheight;
 		Case[][] grilleF = null;
-		int widthF;
-		int height;
+//		int widthF;
+//		int height;
 
 		try {
 			fgrille = grilleFacile.getClass().getDeclaredField("grille");
@@ -107,11 +122,11 @@ public class GrilleTest extends TestCase {
 
 			fwidth = grilleFacile.getClass().getDeclaredField("width");
 			fwidth.setAccessible(true);
-			widthF = (Integer) fwidth.get(grilleFacile);
+//			widthF = (Integer) fwidth.get(grilleFacile);
 
 			fheight = grilleFacile.getClass().getDeclaredField("height");
 			fheight.setAccessible(true);
-			height = (Integer) fheight.get(grilleFacile);
+//			height = (Integer) fheight.get(grilleFacile);
 
 		} catch (IllegalArgumentException ex) {
 			Logger.getLogger(GrilleTest.class.getName()).log(Level.SEVERE, null, ex);
@@ -127,18 +142,18 @@ public class GrilleTest extends TestCase {
 		String retour = "";
 		String interligne = "#";
 
-		for(int j = 0; j < grilleFacile.getWidth() ; j++) {
+		for (int j = 0; j < grilleFacile.getWidth(); j++) {
 			interligne += "---#";
 		}
 
-		retour+=interligne;
+		retour += interligne;
 
-		for(int i = 0; i < grilleFacile.getHeight(); i++) {
+		for (int i = 0; i < grilleFacile.getHeight(); i++) {
 			retour += "\n| ";
-			for(int j = 0; j < grilleFacile.getWidth() ; j++) {
+			for (int j = 0; j < grilleFacile.getWidth(); j++) {
 				retour += grilleF[j][i].toString() + " | ";
 			}
-			retour += '\n'+interligne;
+			retour += '\n' + interligne;
 		}
 
 		assertEquals(retour, grilleFacile.toString());
@@ -147,7 +162,10 @@ public class GrilleTest extends TestCase {
 //		System.out.println(retour);
 
 	}
-
+	
+	/**
+	 * testIsBombe().
+	 */
 	public void testIsBombe() {
 
 		Field fgrilleFacile;
@@ -185,24 +203,24 @@ public class GrilleTest extends TestCase {
 			Logger.getLogger(GrilleTest.class.getName()).log(Level.SEVERE, null, ex);
 		}
 
-		for (int i = 0 ; i < grilleFacile.getWidth() ; i++) {
-			for (int j = 0 ; j < grilleFacile.getHeight() ; j++) {
+		for (int i = 0; i < grilleFacile.getWidth(); i++) {
+			for (int j = 0; j < grilleFacile.getHeight(); j++) {
 //				System.out.println("["+i+"]["+j+"]"+grilleFacile.isBombe(i, j)+" "+grilleF[i][j]);
 				assertEquals(grilleFacile.isBombe(i, j), grilleF[i][j].isBombe());
 			}
 		}
 		System.out.println('\n');
 
-		for (int i = 0 ; i < grilleMoyen.getWidth() ; i++) {
-			for (int j = 0 ; j < grilleMoyen.getHeight() ; j++) {
+		for (int i = 0; i < grilleMoyen.getWidth(); i++) {
+			for (int j = 0; j < grilleMoyen.getHeight(); j++) {
 //				System.out.println("["+i+"]["+j+"]"+grilleMoyen.isBombe(i, j)+" "+grilleM[i][j]);
 				assertEquals(grilleMoyen.isBombe(i, j), grilleM[i][j].isBombe());
 			}
 		}
 		System.out.println('\n');
 
-		for (int i = 0 ; i < grilleExpert.getWidth() ; i++) {
-			for (int j = 0 ; j < grilleExpert.getHeight() ; j++) {
+		for (int i = 0; i < grilleExpert.getWidth(); i++) {
+			for (int j = 0; j < grilleExpert.getHeight(); j++) {
 //				System.out.println("["+i+"]["+j+"]"+grilleExpert.isBombe(i, j)+" "+grilleE[i][j]);
 				assertEquals(grilleExpert.isBombe(i, j), grilleE[i][j].isBombe());
 			}

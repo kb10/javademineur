@@ -5,9 +5,16 @@ import java.lang.reflect.Field;
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
+/**
+ * @author Dorian Langlais
+ *
+ */
 public class CaseTest extends TestCase {
 	
-	public void setUp(){
+	/**
+	 * useless.
+	 */
+	public void setUp() {
 		
 	}
 	
@@ -15,7 +22,7 @@ public class CaseTest extends TestCase {
 	 * On crée une case,<br />
 	 * On vérifie que les attributs sont à leur valeur par défaut.
 	 */
-	public void testCase(){
+	public void testCase() {
 		
 		Case c = new Case();
 		Field f;
@@ -30,13 +37,14 @@ public class CaseTest extends TestCase {
 	}
 	
 	/**
+	 * testSetBombe().
 	 * On crée une case,<br />
 	 * On modifie bombe à faux,<br />
 	 * On vérifie que la modification est effectuée,<br />
 	 * On modifie bombe à vrai,<br />
 	 * On vérifie que la modification est effectuée,
 	 */
-	public void testSetBombe(){
+	public void testSetBombe() {
 		
 		Case c = new Case();
 		
@@ -71,16 +79,16 @@ public class CaseTest extends TestCase {
 	 * On modifie (à l'aide de setBombe) l'attribut bombe,<br />
 	 * On vérifie que getBombe retourne bien la valeur entrée, et correspond au contenu du field.
 	 */
-	public void testIsBombe(){
+	public void testIsBombe() {
 		
 		Case c = new Case();
 		
 		Field f;
 		
-		try{
+		try {
 			f = c.getClass().getDeclaredField("bombe");
 			f.setAccessible(true);
-			assertEquals(c.isBombe(),f.get(c));
+			assertEquals(c.isBombe(), f.get(c));
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -89,10 +97,10 @@ public class CaseTest extends TestCase {
 		c.setBombe(true);
 		assertTrue(c.isBombe());
 		
-		try{
+		try {
 			f = c.getClass().getDeclaredField("bombe");
 			f.setAccessible(true);
-			assertEquals(c.isBombe(),f.get(c));
+			assertEquals(c.isBombe(), f.get(c));
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -101,10 +109,10 @@ public class CaseTest extends TestCase {
 		c.setBombe(false);
 		assertFalse(c.isBombe());
 		
-		try{
+		try {
 			f = c.getClass().getDeclaredField("bombe");
 			f.setAccessible(true);
-			assertEquals(c.isBombe(),f.get(c));
+			assertEquals(c.isBombe(), f.get(c));
 		} catch (Exception e) {
 			e.printStackTrace();
 			Assert.fail();
