@@ -113,11 +113,11 @@ public class Grille {
 			for (int j = -1; j <= 1; j++) {
 				if (!(i == 0 && j == 0)) {
 					
-					int X = x + i;
-					int Y = y + j;
+					int xi = x + i;
+					int yj = y + j;
 					
-					if (X >= 0 && Y >= 0 && X < width && Y < height) {
-						if (this.isBombe(X, Y)) {
+					if (xi >= 0 && yj >= 0 && xi < width && yj < height) {
+						if (this.isBombe(xi, yj)) {
 							count++;
 						}
 					}
@@ -147,7 +147,7 @@ public class Grille {
 			for (int j = 0; j < this.width; j++) {
 				retour += this.grille[j][i].toString() + " | ";
 			}
-			retour += '\n'+interligne;
+			retour += '\n' + interligne;
 		}
 
 		return retour;

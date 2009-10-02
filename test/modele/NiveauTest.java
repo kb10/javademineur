@@ -6,8 +6,11 @@ import java.lang.reflect.Field;
 
 import junit.framework.Assert;
 import junit.framework.TestCase;
-import modele.Niveau;
-
+/**
+ * 
+ * @author Dorian Langlais
+ *
+ */
 public class NiveauTest extends TestCase {
 
 	/**
@@ -19,12 +22,12 @@ public class NiveauTest extends TestCase {
 		
 		try {
 			n = Facile;
-			assertEquals(n.getX(),10);
+			assertEquals(n.getX(), 10);
 			n = Moyen;
-			assertEquals(n.getX(),16);
+			assertEquals(n.getX(), 16);
 			
 			n = Expert;
-			assertEquals(n.getX(),30);
+			assertEquals(n.getX(), 30);
 		} catch (NotInitializedException e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -41,13 +44,13 @@ public class NiveauTest extends TestCase {
 
 		try {
 			n = Facile;
-			assertEquals(n.getY(),10);
+			assertEquals(n.getY(), 10);
 			
 			n = Moyen;
-			assertEquals(n.getY(),16);
+			assertEquals(n.getY(), 16);
 			
 			n = Expert;
-			assertEquals(n.getY(),16);
+			assertEquals(n.getY(), 16);
 		} catch (NotInitializedException e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -63,13 +66,13 @@ public class NiveauTest extends TestCase {
 
 		try {
 			n = Facile;
-			assertEquals(n.getNbMines(),10);
+			assertEquals(n.getNbMines(), 10);
 			
 			n = Moyen;
-			assertEquals(n.getNbMines(),40);
+			assertEquals(n.getNbMines(), 40);
 			
 			n = Expert;
-			assertEquals(n.getNbMines(),99);
+			assertEquals(n.getNbMines(), 99);
 		} catch (NotInitializedException e) {
 			e.printStackTrace();
 			Assert.fail();
@@ -85,8 +88,8 @@ public class NiveauTest extends TestCase {
 	public void testSetPerso() {
 		Niveau n = Facile;
 
-		Field fxPerso,fyPerso,fnbMinePerso;
-		try{
+		Field fxPerso, fyPerso, fnbMinePerso;
+		try {
 			fxPerso = n.getClass().getDeclaredField("xPerso");
 			fyPerso = n.getClass().getDeclaredField("yPerso");
 			fnbMinePerso = n.getClass().getDeclaredField("nbMinePerso");
@@ -95,16 +98,15 @@ public class NiveauTest extends TestCase {
 			fyPerso.setAccessible(true);
 			fnbMinePerso.setAccessible(true);
 
-			assertEquals(fxPerso.get(n),0);
-			assertEquals(fyPerso.get(n),0);
-			assertEquals(fnbMinePerso.get(n),0);
-		}
-		catch(Exception e){
+			assertEquals(fxPerso.get(n), 0);
+			assertEquals(fyPerso.get(n), 0);
+			assertEquals(fnbMinePerso.get(n), 0);
+		} catch (Exception e) {
 			Assert.fail();
 		}
 		
-		int xPerso = 11,yPerso = 13, nbMinePerso = 25;
-		try{
+		int xPerso = 11, yPerso = 13, nbMinePerso = 25;
+		try {
 			n.setPerso(xPerso, yPerso, nbMinePerso);
 			
 			fxPerso = n.getClass().getDeclaredField("xPerso");
@@ -115,27 +117,26 @@ public class NiveauTest extends TestCase {
 			fyPerso.setAccessible(true);
 			fnbMinePerso.setAccessible(true);
 
-			assertEquals(fxPerso.get(n),xPerso);
-			assertEquals(fyPerso.get(n),yPerso);
-			assertEquals(fnbMinePerso.get(n),nbMinePerso);
+			assertEquals(fxPerso.get(n), xPerso);
+			assertEquals(fyPerso.get(n), yPerso);
+			assertEquals(fnbMinePerso.get(n), nbMinePerso);
 			
 			n = Facile;
 
-			assertEquals(n.getX(),10);
-			assertEquals(n.getY(),10);
-			assertEquals(n.getNbMines(),10);
+			assertEquals(n.getX(), 10);
+			assertEquals(n.getY(), 10);
+			assertEquals(n.getNbMines(), 10);
 			
 			n = Perso;
 
-			assertEquals(n.getX(),xPerso);
-			assertEquals(n.getY(),yPerso);
-			assertEquals(n.getNbMines(),nbMinePerso);
-		}
-		catch(Exception e){
+			assertEquals(n.getX(), xPerso);
+			assertEquals(n.getY(), yPerso);
+			assertEquals(n.getNbMines(), nbMinePerso);
+		} catch (Exception e) {
 			Assert.fail();
 		}
 	}
-	
+
 	/**
 	 * On test le comportement de Niveau lorsque l'on joue au niveau Perso.<br />
 	 * Si l'on 
@@ -144,21 +145,21 @@ public class NiveauTest extends TestCase {
 		
 		Niveau n;
 		
-		try{
+		try {
 			n = Facile;
 			
-			assertEquals(n.getX(),10);
-			assertEquals(n.getY(),10);
-			assertEquals(n.getNbMines(),10);
+			assertEquals(n.getX(), 10);
+			assertEquals(n.getY(), 10);
+			assertEquals(n.getNbMines(), 10);
 			
 			n = Perso;
 			
 			int xPerso = 11, yPerso = 12, nbMinePerso = 13;
 			n.setPerso(xPerso, yPerso, nbMinePerso);
 	
-			assertEquals(n.getX(),xPerso);
-			assertEquals(n.getY(),yPerso);
-			assertEquals(n.getNbMines(),nbMinePerso);
+			assertEquals(n.getX(), xPerso);
+			assertEquals(n.getY(), yPerso);
+			assertEquals(n.getNbMines(), nbMinePerso);
 		} catch (NotInitializedException e) {
 			e.printStackTrace();
 			Assert.fail();

@@ -39,10 +39,10 @@ public enum Niveau {
 		case Expert :
 			return 30;
 		case Perso :
-			if (this.xPerso == 0) {
+			if (xPerso == 0) {
 				throw new NotInitializedException("xPerso non initialisé");
 			}
-			return this.xPerso;
+			return xPerso;
 		}
 	}
 	
@@ -61,10 +61,10 @@ public enum Niveau {
 		case Expert :
 			return 16;
 		case Perso :
-			if (this.yPerso == 0) {
+			if (yPerso == 0) {
 				throw new NotInitializedException("yPerso non initialisé");
 			}
-			return this.yPerso;
+			return yPerso;
 		}
 	}
 	
@@ -83,10 +83,10 @@ public enum Niveau {
 		case Expert :
 			return 99;
 		case Perso :
-			if (this.nbMinePerso == 0) {
+			if (nbMinePerso == 0) {
 				throw new NotInitializedException("nbMinePerso non initialisé");
 			}
-			return this.nbMinePerso;
+			return nbMinePerso;
 		}
 	}
 	
@@ -112,8 +112,8 @@ public enum Niveau {
 			throw new BadInitializationException("nbMine >= x * y * 0.25");
 		}
 
-		this.xPerso = x;
-		this.yPerso = y;
-		this.nbMinePerso = nbMine;
+		xPerso = x;
+		yPerso = y;
+		nbMinePerso = nbMine;
 	}
 }
