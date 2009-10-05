@@ -15,7 +15,7 @@ public class BadCoordonneeException extends Exception {
 	 * 
 	 * @param s description de l'erreur.
 	 */
-	BadCoordonneeException(final String s) {
-		
+	public BadCoordonneeException(final String s) {
+		super(s);
 	}
 }

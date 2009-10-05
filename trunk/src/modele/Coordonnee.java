@@ -9,11 +9,11 @@ public class Coordonnee {
 	/**
 	 * Abscisse.
 	 */
-	private int x;
+	private final int x;
 	/**
 	 * Ordonnée.
 	 */
-	private int y;
+	private final int y;
 	
 	/**
 	 * Constructeur de coordonnée.
@@ -45,7 +45,7 @@ public class Coordonnee {
 	 * Accesseur permettant de récupérer l'abcisse de la coordonnée.
 	 * @return Retourne l'abcisse de la coordonnée.
 	 */
-	public int x() {
+	public int getX() {
 		return x;
 	}
 	
@@ -53,7 +53,7 @@ public class Coordonnee {
 	 * Accesseur permettant de récupérer l'ordonnée de la coordonnée.
 	 * @return Retourne l'ordonnée de la coordonnée.
 	 */
-	public int y() {
+	public int getY() {
 		return y;
 	}
 	

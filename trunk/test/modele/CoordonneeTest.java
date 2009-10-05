@@ -18,10 +18,10 @@ public class CoordonneeTest extends TestCase {
 		int x2 = 5;
 		
 		Coordonnee c1 = new Coordonnee(x1, 0);
-		assertEquals(c1.x(), x1);
+		assertEquals(c1.getX(), x1);
 		
 		Coordonnee c2 = new Coordonnee(x2, 0);
-		assertEquals(c2.x(), x2);
+		assertEquals(c2.getX(), x2);
 	}
 	
 	/**
@@ -34,10 +34,10 @@ public class CoordonneeTest extends TestCase {
 		int y2 = 5;
 		
 		Coordonnee c1 = new Coordonnee(0, y1);
-		assertEquals(c1.y(), y1);
+		assertEquals(c1.getY(), y1);
 		
 		Coordonnee c2 = new Coordonnee(0, y2);
-		assertEquals(c2.y(), y2);
+		assertEquals(c2.getY(), y2);
 	}
 	
 	/**
@@ -126,8 +126,8 @@ public class CoordonneeTest extends TestCase {
 				c = new Coordonnee(i, j);
 
 				int hash = 3;
-				hash = 59 * hash + c.x();
-				hash = 59 * hash + c.y();
+				hash = 59 * hash + c.getX();
+				hash = 59 * hash + c.getY();
 				assertEquals(c.hashCode(), hash);
 			}
 		}

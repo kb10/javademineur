@@ -12,13 +12,16 @@ package modele;
 public class Client {
 	
 	/**
-	 * 
-	 * @param argc
-	 * @throws NotInitializedException
+	 * main().
+	 * @param argc argument passé en paramètre du main.
 	 */
-	public static void main(final String[] argc) throws NotInitializedException {
-		System.out.println("test");
-		Grille g = new Grille();
-		System.out.println(g);
+	public static void main(final String[] argc) {
+		try {
+			System.out.println("test");
+			Grille g = new Grille();
+			System.out.println(g);
+		} catch (NotInitializedException e) {
+			e.printStackTrace();
+		}
 	}
 }
